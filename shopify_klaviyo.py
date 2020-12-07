@@ -17,6 +17,7 @@ def sync_shopify_data_to_klaviyo():
     Function to sync historical order data from Shopify to Klaviyo
     1. Fetch order data from Shopify
     2. Serialize order data to Klaviyo's recommended event format
+    3. Track data using Klaviyo track API
     """
     order_data = _get_order_data_from_shopify(API_KEY, PASSWORD, SHOP_NAME)
     serialized_orders, serialized_products = _serialize_order_and_product_data(order_data["orders"])

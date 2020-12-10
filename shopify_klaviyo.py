@@ -3,15 +3,6 @@ import time
 import json
 import base64
 
-# Shopify config constants
-API_KEY = "490f41edd92a10c5b3a407586a9afddc"
-PASSWORD = "37146826a987bc7d64eedc6ccab575ea"
-SHOP_NAME = "paucek-considine6869"
-COMPLETE_ORDER_STATUSES = ["paid", "authorized"]
-
-# Klaviyo account public key
-PUBLIC_KEY = "R53yng"
-
 def sync_shopify_data_to_klaviyo():
     """
     Function to sync historical order data from Shopify to Klaviyo

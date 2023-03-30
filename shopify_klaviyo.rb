@@ -3,6 +3,10 @@ require 'net/http'
 require 'json'
 require 'base64'
 
+=begin
+    This script is the ruby equivalent of the python script
+=end
+
 def sync_shopify_data_to_klaviyo()
 =begin
     Function to sync historical order data from Shopify to Klaviyo

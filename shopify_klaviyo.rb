@@ -118,7 +118,7 @@ def serialize_order_and_product_data(order_data)
                         },
                         "ShippingAddress": nil ? !order.key?("shipping_address") :
                             {
-                                "FirstName": order["shipping_address"]["first_name"],
+                            "FirstName": order["shipping_address"]["first_name"],
                             "LastName": order["shipping_address"]["last_name"],
                             "Company": order["shipping_address"]["company"],
                             "Addaress1": order["shipping_address"]["address1"],
@@ -151,9 +151,9 @@ def _track_events(orders, products)
             product_responses << {
                 "id" => item["properties"]["$event_id"],
                 "klaviyo_track_product_response" => JSON.parse(
-                Net::HTTP.get(
-                    URI.parse("https://a.klaviyo.com/api/track?data=#{__encode_json_dictionary(item)}")
-                )
+                    Net::HTTP.get(
+                        URI.parse("https://a.klaviyo.com/api/track?data=#{__encode_json_dictionary(item)}")
+                    )
                 )
             }
             end
@@ -161,13 +161,13 @@ def _track_events(orders, products)
     end
 
         order_and_product_responses << {
-        "order" => order["properties"]["$event_id"],
-        "klaviyo_track_order_response" => JSON.parse(
-            Net::HTTP.get(
-                URI.parse("https://a.klaviyo.com/api/track?data=#{__encode_json_dictionary(order)}")
-            )
-        ),
-        "products" => product_responses
+            "order" => order["properties"]["$event_id"],
+            "klaviyo_track_order_response" => JSON.parse(
+                Net::HTTP.get(
+                    URI.parse("https://a.klaviyo.com/api/track?data=#{__encode_json_dictionary(order)}")
+                )
+            ),
+            "products" => product_responses
         }
     end
 
